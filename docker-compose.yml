@@ -1,0 +1,6 @@
+services:
+  violin-frontend:
+    build: .
+    container_name: violin-frontend
+    ports:
+      - "3000:80"
