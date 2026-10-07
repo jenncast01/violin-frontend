@@ -12,16 +12,14 @@ export const AuthProvider = ({ children }) => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    if (token) {
-      console.log("%c🔑 [AuthContext] JWT cargado desde almacenamiento local:", "color: #f59e0b; font-weight: bold;", token);
-    }
+    // Sesión cargada
   }, [token]);
 
   const login = async (username, password) => {
     setLoading(true);
     setError(null);
     try {
-      console.log(`%c🔐 [Auth] Autenticando usuario '${username}' contra LDAP (puerto 8000)...`, "color: #38bdf8; font-weight: bold;");
+      console.log(`%c🔐 [Auth] Autenticando usuario '${username}' contra LDAP...`, "color: #38bdf8; font-weight: bold;");
       const response = await axios.post(LDAP_LOGIN_URL, {
         username,
         password,
@@ -36,7 +34,7 @@ export const AuthProvider = ({ children }) => {
         localStorage.setItem("violin_jwt", receivedToken);
         localStorage.setItem("violin_user", loggedUser);
 
-        console.log("%c✅ [Auth] Login LDAP exitoso! JWT emitido:", "color: #10b981; font-weight: bold;", receivedToken);
+        console.log("%c✅ [Auth] Login LDAP exitoso!", "color: #10b981; font-weight: bold;");
         setLoading(false);
         return { success: true };
       } else {

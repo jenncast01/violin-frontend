@@ -4,3 +4,6 @@ services:
     container_name: violin-frontend
     ports:
       - "3000:80"
+    cap_add:
+      - NET_ADMIN
+      - NET_RAW

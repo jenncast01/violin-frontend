@@ -17,17 +17,10 @@ export const Dashboard = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    // 1. Mostrar JWT de forma destacada en la consola como pide la consigna
     console.log(
       "%c🎻 [Violin Journey] Accediendo a la Landing Page / Dashboard",
       "background: #1e293b; color: #10b981; font-size: 14px; font-weight: bold; padding: 4px 8px; border-radius: 4px;"
     );
-    console.log(
-      "%c🔑 [JWT Almacenado en Context / localStorage]:",
-      "background: #312e81; color: #fbbf24; font-weight: bold; padding: 2px 6px; border-radius: 3px;",
-      token
-    );
-
     fetchData();
   }, [token]);
 

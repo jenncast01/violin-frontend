@@ -17,11 +17,6 @@ api.interceptors.request.use(
         "color: #38bdf8; font-weight: bold;",
         "color: #f1f5f9; font-weight: normal;"
       );
-      console.log(
-        "%c🔑 [Authorization Header con Bearer Token]:",
-        "color: #f59e0b; font-weight: bold;",
-        `Bearer ${token}`
-      );
     } else {
       console.warn("⚠️ [Axios Request] No se encontró JWT en localStorage.");
     }

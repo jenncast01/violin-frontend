@@ -132,15 +132,9 @@ export const NewPractice = () => {
 
     setLoading(true);
 
-    // 1. Mostrar de forma clara el JWT en consola al agregar información (requisito de la práctica)
     console.log(
       "%c➕ [Nueva Práctica] Registrando sesión en el Backend...",
       "background: #1e1b4b; color: #c084fc; font-size: 14px; font-weight: bold; padding: 4px 8px; border-radius: 4px;"
-    );
-    console.log(
-      "%c🔑 [JWT Bearer Token Usado en la Petición]:",
-      "background: #78350f; color: #fde68a; font-weight: bold; padding: 2px 6px; border-radius: 3px;",
-      token
     );
     console.log("📦 Datos enviados:", formData);
 
