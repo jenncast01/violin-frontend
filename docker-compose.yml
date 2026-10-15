@@ -7,3 +7,19 @@ services:
     cap_add:
       - NET_ADMIN
       - NET_RAW
+
+  nuclei:
+    image: projectdiscovery/nuclei:latest
+    container_name: nuclei-frontend-scanner
+    profiles:
+      - scan
+    volumes:
+      - ./reports:/reports
+    entrypoint: ["nuclei"]
+    command:
+      - "-target"
+      - "http://violin-frontend:80"
+      - "-severity"
+      - "info,low,medium,high,critical"
+      - "-jsonl-export"
+      - "/reports/nuclei-results.jsonl"
